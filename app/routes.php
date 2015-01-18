@@ -19,8 +19,8 @@ Route::get('/', 'PositionsController@index');
 
 
 Route::get('/create', 'PositionsController@create');
-Route::get('/edit', 'PositionsController@edit');
-Route::get('/delete', 'PositionsController@delete');
+Route::get('/edit/{match}', 'PositionsController@edit');
+Route::get('/delete/{match}', 'PositionsController@delete');
 Route::get('/myaccount', 'PositionsController@myaccount');
 
 Route::get('/createfirestring', 'PositionsController@createfirestring');
@@ -52,7 +52,7 @@ Route::get('/logout', function() {
     Auth::logout();
 
     # Send them to the homepage
-    return Redirect::to('/');
+    return View::make('login');
 
 });
 

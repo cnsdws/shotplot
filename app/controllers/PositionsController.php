@@ -7,49 +7,75 @@ class PositionsController extends BaseController {
 	public function index()
 	{
 		$user = Auth::id();
-		// Show a listing of stocks.
-		//$matches = Match::where('owner','=', Auth::user()->id)->get();
-		return View::make('index');
-		// Show a listing of stock positions.
-		//return View::make('index');
+		// Show a listing of shooting matches.
+		$matches = Match::where('user_id','=', Auth::user()->id)->get();
+		return View::make('index', compact('matches'));
+		
 	}
 
 	public function create()
 	{
-		// Show the create stock position form.
+		// Show the create shooting match form.
 		return View::make('create');
 	}
 
 	public function handleCreate()
 	{
+		// Handle the form for creating a shooting match
+		
+		$user = Auth::id();
+		$match = new Match;
+		$match->place = Input::get('place');
+		$match->date = Input::get('date');
+		$match->riflenumber = Input::get('riflenumber');
+		$match->rangename = Input::get('rangename');
+		$match->user_id = Auth::id(); 
+		$match->save();
 		
 		return Redirect::action('PositionsController@index');
+	
 	}
 
-	public function edit()
+	public function edit(Match $match)
 	{
 		// Show the edit position form.
-		return View::make('index');
+		return View::make('edit', compact('match'));
 	}
 
 	public function handleEdit()
 	{
 		
+		// Handle edit form submission.
+		$user = Auth::id();
+		$match = new Match;
+		$match->place = Input::get('place');
+		$match->date = Input::get('date');
+		$match->riflenumber = Input::get('riflenumber');
+		$match->rangename = Input::get('rangename');
+		$match->user_id = Auth::id(); 
+		$match->save();
+
 		return Redirect::action('PositionsController@index');
+
 
 	}
 
-	public function delete()
+	public function delete(Match $match)
 	{
 		// Show delete confirmation page.
-		return View::make('delete');
+		return View::make('delete', compact('match'));
 		
 	}
 
 	public function handleDelete()
 	{
-		// Handle the delete confirmation.
+		/// Handle the delete confirmation.
+		$user = Auth::id();
+		$id = Input::get('match');
+		$match = Match::findOrFail($id);
 		
+		$match->delete();
+
 		return Redirect::action('PositionsController@index');
 
 	}
@@ -78,7 +104,10 @@ class PositionsController extends BaseController {
 
 	public function indexfirestring()
 	{
-		return View::make('indexfirestring');
+		$matches = Match::where('user_id','=', Auth::user()->id)->get();
+		$firestrings = Firestring::where('match_id', '=', Auth::user()->id)->get();
+		return View::make('indexfirestring', compact('firestrings'), compact('matches'));
+
 	}
 
 
