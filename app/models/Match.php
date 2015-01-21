@@ -4,13 +4,13 @@ class Match extends Eloquent
 {
 
 	public function user() {
-        # Book belongs to Author
+        # Match belongs to User
         # Define an inverse one-to-many relationship.
         return $this->belongsTo('User');
     }
 
 	public function firestring() {
-        # Author has many Books
+        # Match has many Firestring
         # Define a one-to-many relationship.
         return $this->hasMany('Firestring');
     }

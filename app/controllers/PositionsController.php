@@ -23,7 +23,6 @@ class PositionsController extends BaseController {
 	{
 		// Handle the form for creating a shooting match
 		
-		$user = Auth::id();
 		$match = new Match;
 		$match->place = Input::get('place');
 		$match->date = Input::get('date');
@@ -47,7 +46,8 @@ class PositionsController extends BaseController {
 		
 		// Handle edit form submission.
 		$user = Auth::id();
-		$match = new Match;
+		$match = Match::findOrFail(Input::get('id'));
+		
 		$match->place = Input::get('place');
 		$match->date = Input::get('date');
 		$match->riflenumber = Input::get('riflenumber');
@@ -87,8 +87,10 @@ class PositionsController extends BaseController {
 		
 	}
 
-	public function createfirestring()
+	public function CreateFireString()
 	{
+		// Handle the form for creating a shooting match
+	
 		return View::make('createfirestring');
 	}
 	
@@ -104,13 +106,40 @@ class PositionsController extends BaseController {
 
 	public function indexfirestring()
 	{
-		$matches = Match::where('user_id','=', Auth::user()->id)->get();
-		$firestrings = Firestring::where('match_id', '=', Auth::user()->id)->get();
-		return View::make('indexfirestring', compact('firestrings'), compact('matches'));
+		$firestrings = Firestring::with('match')->where('match_id', '=', '$firestring->matches->id')->get();
+		return View::make('indexfirestring', compact('firestrings'));
 
 	}
 
+	public function handleCreateFireString()
+	{
+		
+		$firestring = new Firestring;
+		$firestring->fire_string_number = Input::get('fire_string_number');
+		$firestring->distance = Input::get('distance');
+		$firestring->target = Input::get('target');
+		$firestring->relay = Input::get('relay');
+		$firestring->lightdirection = Input::get('lightdirection');
+		$firestring->winddirection = Input::get('winddirection');
+		$firestring->windspeed = Input::get('windspeed');
+		$firestring->elevation = Input::get('elevation');
+		$firestring->windage = Input::get('windage');
+		$firestring->shot1value = Input::get('shot1value');
+		$firestring->shot2value = Input::get('shot2value');
+		$firestring->shot3value = Input::get('shot3value');
+		$firestring->shot4value = Input::get('shot4value');
+		$firestring->shot5value = Input::get('shot5value');
+		$firestring->shot6value = Input::get('shot6value');
+		$firestring->shot7value = Input::get('shot7value');
+		$firestring->shot8value = Input::get('shot8value');
+		$firestring->shot9value = Input::get('shot9value');
+		$firestring->shot10value = Input::get('shot10value');
+		$firestring->match_id = $match->id;
 
+		$firestring->save();
+		
+		return Redirect::action('PositionsController@indexfirestring');
+	}
 	
 
 }

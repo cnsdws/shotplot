@@ -37,6 +37,10 @@
             <li><a href="{{ action('PositionsController@create') }}" class="navbar-brand">Create Match</a></li>
             <li><a href="{{ action('PositionsController@myaccount') }}" class="navbar-brand">My Account</a></li>
           </ul>
+              
+              <a class="float-right" href="#">
+              <img class="media-object" src="images/ShotPlotLogo.gif" alt = "ShotPlot" width="150" height="80" style="float:right">
+              </a>     
         </div>
         <!--/.nav-collapse -->
         
@@ -60,7 +64,6 @@
         <ul class="media-list">
           <li class="media">
             <div class="media-body">
-
               @if(Session::get('flash_message'))
               <div class='flash-message'>{{ Session::get('flash_message') }}</div>
               @endif

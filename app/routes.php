@@ -11,6 +11,44 @@
 |
 */
 
+Route::get('/practice-match', function() {
+
+    # The all() method will fetch all the rows from a Model/table
+    $matches = Match::all();
+
+    # Make sure we have results before trying to print them...
+    if($matches->isEmpty() != TRUE) {
+
+        # Typically we'd pass $books to a View, but for quick and dirty demonstration, let's just output here...
+        foreach($matches as $match) {
+            echo $match->id.' id'.' and '. $match->user_id.' user <br>';
+        }
+    }
+    else {
+        return 'No matches found';
+    }
+
+});
+
+Route::get('/practice-firestring', function() {
+
+    # The all() method will fetch all the rows from a Model/table
+    $firestrings = Firestring::all();
+
+    # Make sure we have results before trying to print them...
+    if($firestrings->isEmpty() != TRUE) {
+
+        # Typically we'd pass $books to a View, but for quick and dirty demonstration, let's just output here...
+        foreach($firestrings as $firestring) {
+            echo $firestring->id.' id'.' and '. $firestring->match_id.' match <br>';
+        }
+    }
+    else {
+        return 'No matches found';
+    }
+
+});
+
 // Bind route parameters.
 Route::model('match', 'Match');
 
@@ -60,6 +98,11 @@ Route::get('/logout', function() {
 Route::post('/create', 'PositionsController@handleCreate');
 Route::post('/edit', 'PositionsController@handleEdit');
 Route::post('/delete', 'PositionsController@handleDelete');
+
+Route::post('/createfirestring', 'PositionsController@handleCreateFireString');
+
+
+
 Route::post('/signup', 
     array(
         'before' => 'csrf', 
@@ -157,7 +200,3 @@ Route::get('/debug', function() {
 		echo '</pre>';
 
 });
-
-
-
-

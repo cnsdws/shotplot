@@ -33,12 +33,8 @@
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="http://www.shotplot.net">Home</a></li>
-            <li><a href="{{ action('PositionsController@index') }}" class="navbar-brand">Matches</a></li>
-            <li><a href="{{ action('PositionsController@createfirestring') }}" class="navbar-brand">Create String</a></li>
-            <li><a href="{{ action('PositionsController@editfirestring') }}" class="navbar-brand">Edit String</a></li>
-            <li><a href="{{ action('PositionsController@deletefirestring') }}" class="navbar-brand">Delete String</a></li>
-            
-         </ul>
+            <li><a href="{{ action('PositionsController@index') }}" class="navbar-brand">Matches</a></li> 
+          </ul>
         </div>
         <!--/.nav-collapse -->
         
