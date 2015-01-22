@@ -21,6 +21,7 @@
 
 			<input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
 
+			
 			<div class="form-group">
 				{{ Form::input('text', 'fire_string_number') }}
 				{{ Form::label('fire_string_number','Target Number') }}
@@ -112,7 +113,7 @@
 		
 		<a href="{{ action('PositionsController@indexfirestring') }}" class="btn btn-link">Cancel</a>
 
-						
+
 		
 	</form>
 

@@ -30,6 +30,7 @@
 						<tr>
 							<th>Date</th>
 							<th>Location</th>
+							<th>Match ID</th>
 							<th>Distance</th>
 							<th>Target Type</th>
 							<th>Firing String</th>
@@ -42,17 +43,17 @@
 						<tr>
 							<td>{{ $firestring->match->date}}</td>
 							<td>{{ $firestring->match->place}}</td>
+							<td>{{ $firestring->match->id}}</td>
 							<td>{{ $firestring->distance }}</td>
 							<td>{{ $firestring->target }}</td>
 							<td>{{ $firestring->fire_string_number }}</td>
 							<td><td><a href="{{ action('PositionsController@editfirestring', $firestring->id) }}" class="btn btn-default">Edit</a>
 							<a href="{{ action('PositionsController@deletefirestring', $firestring->id) }}"  class="btn btn-danger">Delete</a> </td></td>
-							
-							
 						</tr>
 						@endforeach
 
-						
+						{{$firestring->match->id}}
+
 					</tbody>
 				</table>
 			@endif

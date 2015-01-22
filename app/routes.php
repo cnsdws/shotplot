@@ -14,7 +14,8 @@
 Route::get('/practice-match', function() {
 
     # The all() method will fetch all the rows from a Model/table
-    $matches = Match::all();
+    
+    $matches = Match::where('user_id', '=', Auth::user()->id)->get();
 
     # Make sure we have results before trying to print them...
     if($matches->isEmpty() != TRUE) {
