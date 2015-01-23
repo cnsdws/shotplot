@@ -95,10 +95,13 @@ Route::get('/logout', function() {
 
 });
 
+
 // Handle form submissions.
 Route::post('/create', 'PositionsController@handleCreate');
 Route::post('/edit', 'PositionsController@handleEdit');
 Route::post('/delete', 'PositionsController@handleDelete');
+Route::post('/myaccount', 'PositionsController@handleMyAccount');
+Route::post('/updatepassword', 'PositionsController@updatePassword');
 
 Route::post('/createfirestring', 'PositionsController@handleCreateFireString');
 

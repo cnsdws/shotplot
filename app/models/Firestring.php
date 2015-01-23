@@ -10,4 +10,13 @@ class Firestring extends Eloquent
         return $this->belongsTo('Match');
     }
     
+    public function user()
+    {
+        return $this->belongsTo('User');
+    }
+
+    public function scopeGetById($query, $id)
+    {
+        return $query->where('user_id', Auth::user()->id)->where('id', $id);
+    }
 }

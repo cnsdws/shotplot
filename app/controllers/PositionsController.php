@@ -83,7 +83,21 @@ class PositionsController extends BaseController {
 	public function myaccount()
 	{
 		// Show delete confirmation page.
-		return View::make('myaccount');
+		$id = Auth::user()->id;
+		
+		return View::make('myaccount', compact('id'));
+		
+	}
+
+	public function handleMyAccount()
+	{
+		Auth::user()->email = Input::get('email');
+		Auth::user()->save();
+        return Redirect::action('PositionsController@index');
+	}
+	
+	public function updatePassword()
+	{
 		
 	}
 
@@ -106,6 +120,7 @@ class PositionsController extends BaseController {
 
 	public function indexfirestring()
 	{
+		
 		$firestrings = Firestring::with('match')->get();
 		return View::make('indexfirestring', compact('firestrings'));
 

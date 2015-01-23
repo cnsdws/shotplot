@@ -29,4 +29,12 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         return $this->hasMany('Match');
     }
 
+
+    public function firestring() {
+
+        return $this->hasMany('Firestring');
+
+    }
+
+
 }
