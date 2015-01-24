@@ -21,12 +21,20 @@
 
             <h3>Sign up now!</h3>
             <br>
+        </div>
 
+        <div class = "col-md-4"> 
             <p>
-                Please enter a valid email and password of at least 6 characters to sign up.
+            Please enter your name, a valid email, and password of at least 6 characters to sign up.
             <p>
 
             {{ Form::open(array('url' => '/signup')) }}
+
+                First Name<br>
+                {{ Form::text('firstname') }}<br><br>
+                
+                Last Name<br>
+                {{ Form::text('lastname') }}<br><br>
 
                 Email<br>
                 {{ Form::text('email') }}<br><br>

@@ -92,43 +92,100 @@ class PositionsController extends BaseController {
 	public function handleMyAccount()
 	{
 		Auth::user()->email = Input::get('email');
+		Auth::user()->firstname = Input::get('firstname');
+		Auth::user()->lastname = Input::get('lastname');
 		Auth::user()->save();
         return Redirect::action('PositionsController@index');
 	}
 	
 	public function updatePassword()
 	{
-		
+		$validator = Validator::make(Input::all(), 
+			array(
+					'oldpassword' => 'required',
+					'newpassword' => 'required|min:6',
+					'confirmpassword' => 'required|same:newpassword'
+				)
+			);
+
+		if($validator->fails()) {
+
+    		return Redirect::to('/myaccount')
+        		->with('flash_message', '<br> <p class="bg-danger">Password Change failed; please fix the errors listed below.</p>')
+        		->withErrors($validator);
+			}
+            # Try to add the user 
+        else
+        {
+			$user = User::find(Auth::user()->id);
+			$oldpassword = Input::get('oldpassword');
+			$newpassword = Input::get('newpassword');
+			
+			if(Hash::check($oldpassword, $user->getAuthPassword()))
+			{
+				$user->password = Hash::make($newpassword);
+
+				if($user->save())
+				{
+					return Redirect::to('/myaccount')
+					->with('flash_message','<br> <p class="bg-success">Your password has been changed!</p>');
+				}
+			}
+
+        } 
+           return Redirect::to('/myaccount')
+           ->with('flash_message','<br><p class="bg-danger">Your password could not be changed!</p>') ;
+
 	}
 
-	public function CreateFireString()
-	{
-		// Handle the form for creating a shooting match
 	
-		return View::make('createfirestring');
-	}
 	
-	public function editfirestring()
+	public function editFirestring()
 	{
 		return View::make('editfirestring');
 	}
 
-	public function deletefirestring()
+
+	public function deleteFirestring(Firestring $firestring)
 	{
-		return View::make('deletefirestring');
+		// Show delete confirmation page.
+		return View::make('deletefirestring', compact('firestring'));
+		
 	}
 
-	public function indexfirestring()
+	public function handleDeleteFirestring()
 	{
+		/// Handle the delete confirmation.
+		$user = Auth::id();
+		$id = Input::get('match');
+		$match = Match::findOrFail($id);
 		
-		$firestrings = Firestring::with('match')->get();
-		return View::make('indexfirestring', compact('firestrings'));
+		$match->delete();
+
+		return Redirect::action('PositionsController@index');
 
 	}
 
-	public function handleCreateFireString()
+	public function indexFirestring()
 	{
-		
+		$user = Auth::user();
+		$matches = Match::with('firestring')
+			->where('user_id', '=', $user->id)
+			->get();
+
+		return View::make('indexfirestring', compact('matches'));
+
+	}
+
+	public function createFirestring(Match $match)
+	{
+		// Handle the form for creating a shooting match
+	
+		return View::make('createfirestring', compact('match'));
+	}
+
+	public function handleCreateFirestring()
+	{
 		$firestring = new Firestring;
 		$firestring->fire_string_number = Input::get('fire_string_number');
 		$firestring->distance = Input::get('distance');
@@ -149,11 +206,11 @@ class PositionsController extends BaseController {
 		$firestring->shot8value = Input::get('shot8value');
 		$firestring->shot9value = Input::get('shot9value');
 		$firestring->shot10value = Input::get('shot10value');
-		$firestring->match_id = 17;
-
+		$firestring->match()->associate($match);
+		$firestring->match_id = 18;
 		$firestring->save();
-		
-		return Redirect::action('PositionsController@indexfirestring');
+
+		return Redirect::action('PositionsController@indexFirestring');
 	}
 	
 

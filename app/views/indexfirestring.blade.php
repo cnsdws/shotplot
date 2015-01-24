@@ -14,9 +14,11 @@
     <br>
     <br>
         <h3>Your Firestrings</h3>
-        <li><a href="{{ action('PositionsController@createfirestring') }}" class="navbar-brand">Create a New String</a></li>
-
-        @if ($firestrings->isEmpty())
+        <li><a href="{{ action('PositionsController@createFirestring') }}" class="navbar-brand">Create a New String</a></li>
+        <br>
+        <br>
+        <br>
+        @if ($matches->isEmpty())
 				<br>
 				<br>
 				<p>
@@ -24,42 +26,44 @@
 				</p>
 
 			@else
-
+				
 				<table class="table table-striped">
 					<thead>
 						<tr>
 							<th>Date</th>
 							<th>Location</th>
+							<th>Owner</th>
 							<th>Match ID</th>
 							<th>Distance</th>
 							<th>Target Type</th>
 							<th>Firing String</th>
+							<th>Fire String ID</th>
 							<th>Actions</th>
 						</tr>
 					</thead>
 
 					<tbody>
-						@foreach($firestrings as $firestring)
+						@foreach($matches as $match)
 						<tr>
-							<td>{{ $firestring->match->date}}</td>
-							<td>{{ $firestring->match->place}}</td>
-							<td>{{ $firestring->match->id}}</td>
-							<td>{{ $firestring->distance }}</td>
-							<td>{{ $firestring->target }}</td>
-							<td>{{ $firestring->fire_string_number }}</td>
-							<td><td><a href="{{ action('PositionsController@editfirestring', $firestring->id) }}" class="btn btn-default">Edit</a>
-							<a href="{{ action('PositionsController@deletefirestring', $firestring->id) }}"  class="btn btn-danger">Delete</a> </td></td>
-						</tr>
-						@endforeach
+							<td>{{ $match->date }}</td>
+							<td>{{ $match->place }}</td>
+							<td>{{ $match->user_id }}</td>
+							<td>{{ $match->id }}</td>
+							<td></td>
 
-						{{$firestring->match->id}}
+							
+							<td><a href="{{ action('PositionsController@indexFirestring') }}">view details</a></td>
+							<td><td><a href="{{ action('PositionsController@editFirestring', $match->id) }}" class="btn btn-default">Edit</a>
+							<a href="{{ action('PositionsController@deleteFirestring', $match->id) }}"  class="btn btn-danger">Delete</a> </td></td>
+						</tr>
+						<tr>{{$match}}</tr>
+						<br>
+						<!-- User id = {{Auth::user()->id}} -->
+						@endforeach
 
 					</tbody>
 				</table>
 			@endif
-            
-            
 			
-                        
 @stop
 
