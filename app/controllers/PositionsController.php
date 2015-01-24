@@ -134,7 +134,7 @@ class PositionsController extends BaseController {
 		$firestring->shot8value = Input::get('shot8value');
 		$firestring->shot9value = Input::get('shot9value');
 		$firestring->shot10value = Input::get('shot10value');
-		$firestring->match_id = 17;
+		$firestring->match_id = 1;
 
 		$firestring->save();
 		
