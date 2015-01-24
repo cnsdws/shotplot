@@ -33,21 +33,17 @@
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="http://www.shotplot.net">Home</a></li>
-            <li>    </li>
+            <li><a href="{{ action('PositionsController@index') }}" class="navbar-brand">Matches</a></li>
             <li><a href="{{ action('PositionsController@create') }}" class="navbar-brand">Create Match</a></li>
             <li><a href="{{ action('PositionsController@myaccount') }}" class="navbar-brand">My Account</a></li>
-          </ul>
-              
-              <a class="float-right" href="#">
-              <img class="media-object" src="images/ShotPlotLogo.gif" alt = "ShotPlot" width="150" height="80" style="float:right">
-              </a>     
+          </ul>   
         </div>
         <!--/.nav-collapse -->
         
         
         
         @if(Auth::check())
-        <a href='/logout'>Log out {{ Auth::user()->email; }}</a>
+        <a href='/logout'>Log out {{ Auth::user()->firstname }}</a>
         @else 
         <a href='/signup'>Sign up</a> or <a href='/login'>Login</a>
         @endif

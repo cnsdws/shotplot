@@ -12,15 +12,15 @@
 	@endforeach
 
     <!-- Main page section for create position -->
-    <h4>Add a new String of Fire</h4>
+    <h4>View FireString</h4>
 
 <div class = "row">
 	    <div class = "col-md-4"> 
     
-   			<form action="{{ action('PositionsController@handleCreateFirestring') }}" method="post" role="form">
+   			<form action="{{ action('PositionsController@handleCreateFireString') }}" method="post" role="form">
 
 			<input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
-		
+
 			
 			<div class="form-group">
 				{{ Form::input('text', 'fire_string_number') }}
@@ -111,7 +111,7 @@
 
 		{{ Form::submit('Create', ['class' => 'btn btn-primary']) }}
 		
-		<a href="{{ action('PositionsController@indexFirestring') }}" class="btn btn-link">Cancel</a>
+		<a href="{{ action('PositionsController@indexfirestring') }}" class="btn btn-link">Cancel</a>
 
 
 		

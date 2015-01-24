@@ -10,4 +10,7 @@ class Firestring extends Eloquent
         return $this->belongsTo('Match');
     }
     
+    
+
+   
 }

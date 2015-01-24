@@ -50,8 +50,12 @@ Route::get('/practice-firestring', function() {
 
 });
 
+
+
+
 // Bind route parameters.
 Route::model('match', 'Match');
+Route::model('firestring','Firestring');
 
 // Show pages.
 Route::get('/', 'PositionsController@index');
@@ -62,10 +66,10 @@ Route::get('/edit/{match}', 'PositionsController@edit');
 Route::get('/delete/{match}', 'PositionsController@delete');
 Route::get('/myaccount', 'PositionsController@myaccount');
 
-Route::get('/createfirestring', 'PositionsController@createfirestring');
-Route::get('/editfirestring', 'PositionsController@editfirestring');
-Route::get('/deletefirestring', 'PositionsController@deletefirestring');
-Route::get('/indexfirestring', 'PositionsController@indexfirestring');
+Route::get('/createfirestring', 'PositionsController@createFirestring');
+Route::get('/editfirestring', 'PositionsController@editFirestring');
+Route::get('/deletefirestring', 'PositionsController@deleteFirestring');
+Route::get('/indexfirestring', 'PositionsController@indexFirestring');
 
 //Route::get('/list', 'TransactionsController@listTransactions');
 Route::get('/signup',
@@ -95,12 +99,17 @@ Route::get('/logout', function() {
 
 });
 
+
 // Handle form submissions.
 Route::post('/create', 'PositionsController@handleCreate');
 Route::post('/edit', 'PositionsController@handleEdit');
 Route::post('/delete', 'PositionsController@handleDelete');
+Route::post('/myaccount', 'PositionsController@handleMyAccount');
+Route::post('/updatepassword', 'PositionsController@updatePassword');
 
-Route::post('/createfirestring', 'PositionsController@handleCreateFireString');
+Route::post('/createfirestring', 'PositionsController@handleCreateFirestring');
+Route::post('/deletefirestring', 'PositionsController@handleDeleteFirestring');
+
 
 
 
@@ -112,6 +121,8 @@ Route::post('/signup',
             $user = new User;
             $user->email    = Input::get('email');
             $user->password = Hash::make(Input::get('password'));
+            $user->firstname = Input::get('firstname');
+            $user->lastname = Input::get('lastname');
 
 			$rules = array(
 			    'email' => 'email|unique:users,email',
@@ -159,6 +170,16 @@ Route::post('/login',
             }
 
             return Redirect::to('login');
+        }
+    )
+);
+
+Route::post('/changepassword', 
+    array(
+        'before' => 'csrf', 
+        function() {
+
+            
         }
     )
 );
