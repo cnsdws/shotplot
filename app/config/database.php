@@ -51,7 +51,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'shotplot',
 			'username'  => 'root',
-			'password'  => 'root',
+			'password'  => 'mHJnXS1yeT',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
