@@ -41,11 +41,11 @@
 							<td>{{ $firestring->target }}</td>
 							<td>{{ $firestring->distance }}</td>
 							<td>{{ $firestring->relay }}</td>
-							<td><a href="/indexfirestring/{{ $match->id }}">view details</a></td>
-							<td><a href="{{ action('PositionsController@editFirestring', $match->id) }}" class="btn btn-default">Edit</a>
+							<td><a href="">view details</a></td>
+							<td><a href="/editfirestring/{{$firestring->id}}" class="btn btn-default">Edit</a>
 							<a href="/deletefirestring/{{$firestring->id}}"  class="btn btn-danger">Delete</a> </td></td>
-							
 						</tr>
+						
 						@endforeach
 
 					</tbody>

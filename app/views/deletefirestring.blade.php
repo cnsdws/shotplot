@@ -11,7 +11,7 @@
 		<form action = "/deletefirestring/{{ $firestring->id }}" method = "post" role = "form">
 			<input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
 			<input type="submit" class="btn btn-danger" value="Yes" />
-			<a href="/indexfirestring/ {{ $firestring->match_id }}" class="btn btn-default">Cancel</a>
+			<a href="/indexfirestring/{{ $firestring->match_id }}" class="btn btn-default">Cancel</a>
 		</form>
 
 

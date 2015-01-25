@@ -140,12 +140,16 @@ class PositionsController extends BaseController {
 
 	
 	
-	public function editFirestring()
+	public function editFirestring($id)
 	{
-		return View::make('editfirestring');
+		// Show the edit position form.
+		return View::make('editFirstring', array(
+			'firestring'=>$firestring
+			));
 	}
 
-	public function displayFirestring()
+	
+	public function displayFirestring($id)
 	{
 		return View::make('displayfirestring');
 	}
@@ -158,6 +162,8 @@ class PositionsController extends BaseController {
 			'firestring'=>$firestring
 			));
 	}
+
+
 
 	public function handleDeleteFirestring($id)
 	{
