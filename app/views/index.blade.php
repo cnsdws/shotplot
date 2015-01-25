@@ -1,7 +1,7 @@
 @extends('_master')
 
 @section('css')
-<link href="../public/css/bootstrap.css" rel="stylesheet">
+<link href="../css/bootstrap.css" rel="stylesheet">
 @stop
 
 @section('Index')
