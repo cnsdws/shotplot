@@ -1,8 +1,5 @@
 @extends('_newmaster')
 
-@section('css')
-<link href="../css/bootstrap.css" rel="stylesheet">
-@stop
 
 @section('login')
 <br>
@@ -26,7 +23,9 @@
             {{ Form::close() }}
 
             or
-            <a href='signup'>Sign up</a>
+            <a href='signup'>Sign up</a>   
+            <br>
+            <a href='resetpassword'>Reset Your Password</a> 
         </div>
         <div class = "col-md-8"> 
             <a class="float-right" href="#">

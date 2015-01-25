@@ -1,8 +1,6 @@
 @extends('_firestringmaster')
 
-@section('css')
-<link href="../public/css/bootstrap.css" rel="stylesheet">
-@stop
+
 <br>
 <br>
 @section('createfirestring')
@@ -20,7 +18,7 @@
    			<form action="{{ action('PositionsController@handleCreateFirestring') }}" method="post" role="form">
 
 			<input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
-		
+
 			
 			<div class="form-group">
 				{{ Form::input('text', 'fire_string_number') }}
@@ -108,10 +106,10 @@
 	</div>
 
 		
-
+		{{ Form::input('hidden', 'match_id', $match_id) }}
 		{{ Form::submit('Create', ['class' => 'btn btn-primary']) }}
 		
-		<a href="{{ action('PositionsController@indexFirestring') }}" class="btn btn-link">Cancel</a>
+		<a href="{{ url::to('/indexfirestring/'.$match_id) }}" class="btn btn-link">Cancel</a>
 
 
 		

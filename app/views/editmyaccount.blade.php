@@ -1,10 +1,5 @@
 @extends('_master')
 
-@section('css')
-<link href="../public/css/bootstrap.css" rel="stylesheet">
-@stop
-
-
 @section('Edit')
 	
 	@foreach($errors->all() as $message) 

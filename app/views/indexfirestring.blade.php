@@ -1,8 +1,5 @@
 @extends('_firestringmaster')
 
-@section('css')
-<link href="../public/css/bootstrap.css" rel="stylesheet">
-@stop
 
 @section('indexfirestring')
 	@foreach($errors->all() as $message) 
@@ -14,11 +11,11 @@
     <br>
     <br>
         <h3>Your Firestrings</h3>
-        <li><a href="{{ action('PositionsController@createFirestring') }}" class="navbar-brand">Create a New String</a></li>
+        <li><a href="/createfirestring/{{$match_id}}" class="navbar-brand">Create a New String</a></li>
         <br>
         <br>
         <br>
-        @if ($matches->isEmpty())
+        @if (count($firestrings) == 0)
 				<br>
 				<br>
 				<p>
@@ -30,31 +27,26 @@
 				<table class="table table-striped">
 					<thead>
 						<tr>
-							<th>Date</th>
-							<th>Location</th>
-							<th>Owner</th>
-							<th>Match ID</th>
+							<th>String Number</th>
+							<th>Target</th>
 							<th>Distance</th>
-							<th>Target Type</th>
-							<th>Firing String</th>
-							<th>Fire String ID</th>
-							<th>Actions</th>
+							<th>Relay</th>
+							<th>View</th>
+							<th>Edit</th>
+							<th>Delete</th>
 						</tr>
 					</thead>
 
 					<tbody>
-						@foreach($matches as $match)
+						@foreach($firestrings as firestring)
 						<tr>
-							<td>{{ $match->date }}</td>
-							<td>{{ $match->place }}</td>
-							<td>{{ $match->user_id }}</td>
-							<td>{{ $match->id }}</td>
-							<td></td>
-
-							
-							<td><a href="{{ action('PositionsController@displayFirestring') }}">view details</a></td>
-							<td><td><a href="{{ action('PositionsController@editFirestring', $match->id) }}" class="btn btn-default">Edit</a>
-							<a href="{{ action('PositionsController@deleteFirestring', $match->id) }}"  class="btn btn-danger">Delete</a> </td></td>
+							<td>{{ $firestring->fire_string_number }}</td>
+							<td>{{ $firestring->target }}</td>
+							<td>{{ $firestring->distance }}</td>
+							<td>{{ $firestring->relay }}</td>
+							<td><a href="/indexfirestring/{{ $match->id }}">view details</a></td>
+							<td><a href="{{ action('PositionsController@editFirestring', $match->id) }}" class="btn btn-default">Edit</a>
+							<a href="/deletefirestring/{{$firestring->id}}"  class="btn btn-danger">Delete</a> </td></td>
 						</tr>
 						<tr>{{$match}}</tr>
 						<br>

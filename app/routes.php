@@ -66,11 +66,11 @@ Route::get('/edit/{match}', 'PositionsController@edit');
 Route::get('/delete/{match}', 'PositionsController@delete');
 Route::get('/myaccount', 'PositionsController@myaccount');
 
-Route::get('/createfirestring', 'PositionsController@createFirestring');
-Route::get('/editfirestring', 'PositionsController@editFirestring');
-Route::get('/deletefirestring', 'PositionsController@deleteFirestring');
-Route::get('/indexfirestring', 'PositionsController@indexFirestring');
-Route::get('/displayfirestring', 'PositionsController@displayFirestring');
+Route::get('/createfirestring/{id}', 'PositionsController@createFirestring');
+Route::get('/editfirestring/{id}', 'PositionsController@editFirestring');
+Route::get('/deletefirestring/{id}', 'PositionsController@deleteFirestring');
+Route::get('/indexfirestring/{id}', 'PositionsController@indexFirestring');
+Route::get('/displayfirestring/{id}', 'PositionsController@displayFirestring');
 
 //Route::get('/list', 'TransactionsController@listTransactions');
 Route::get('/signup',
@@ -88,6 +88,15 @@ Route::get('/login',
             return View::make('login');
         }
     )
+);
+
+Route::get('/passwordreset',
+	array(
+		'before' => 'guest',
+		function() {
+			return View::make('passwordreset');
+			}
+		)
 );
 
 Route::get('/logout', function() {
@@ -109,7 +118,7 @@ Route::post('/myaccount', 'PositionsController@handleMyAccount');
 Route::post('/updatepassword', 'PositionsController@updatePassword');
 
 Route::post('/createfirestring', 'PositionsController@handleCreateFirestring');
-Route::post('/deletefirestring', 'PositionsController@handleDeleteFirestring');
+Route::post('/deletefirestring/{id}', 'PositionsController@handleDeleteFirestring');
 
 
 

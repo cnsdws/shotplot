@@ -1,9 +1,5 @@
 @extends('_newmaster')
 
-@section('css')
-<link href="../css/bootstrap.css" rel="stylesheet">
-@stop
-
 
 <!-- Sign up page -->
 <div class = "container">

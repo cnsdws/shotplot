@@ -151,47 +151,51 @@ class PositionsController extends BaseController {
 	}
 
 
-	public function deleteFirestring(Firestring $firestring)
+	public function deleteFirestring($id)
 	{
 		// Show delete confirmation page.
-		return View::make('deletefirestring', compact('firestring'));
-		
+		return View::make('deletefirestring', array(
+			'firestring'=>$firestring
+			));
 	}
 
-	public function handleDeleteFirestring()
+	public function handleDeleteFirestring($id)
 	{
 		/// Handle the delete confirmation.
 		$user = Auth::id();
-		$id = Input::get('match');
-		$match = Match::findOrFail($id);
-		
-		$match->delete();
+		$firestring = Firestring::find($id);
+		$match_id = $firestring->match_id;
+		$firestring->delete();
 
-		return Redirect::action('PositionsController@index');
+		return Redirect::to('indexfirestring/'.$match_id);
 
 	}
 
-	public function indexFirestring()
+	public function indexFirestring($id)
 	{
 		$user = Auth::user();
-		$matches = Match::with('firestring')
-			->where('user_id', '=', $user->id)
-			->get();
+		$match = Match::find($id);
+		$firestrings = Firestring::where('match_id', $match->id)->get();
 
-		return View::make('indexfirestring', compact('matches'));
-
+		return View::make('indexfirestring', array(
+			'match'=> $match,
+			'firestrings' => $firestrings
+			));
 	}
 
-	public function createFirestring(Match $match)
+	public function createFirestring($match_id)
 	{
 		// Display the form for creating a shooting match
 	
-		return View::make('createfirestring', compact('match'));
+		return View::make('createfirestring', array(
+			'match_id'=> $match_id
+		));
 	}
 
 	public function handleCreateFirestring()
 	{
 		$firestring = new Firestring;
+		$match = Match::findOrFail(Input::get('match_id'));
 		$firestring->fire_string_number = Input::get('fire_string_number');
 		$firestring->distance = Input::get('distance');
 		$firestring->target = Input::get('target');
@@ -211,11 +215,10 @@ class PositionsController extends BaseController {
 		$firestring->shot8value = Input::get('shot8value');
 		$firestring->shot9value = Input::get('shot9value');
 		$firestring->shot10value = Input::get('shot10value');
-		$firestring->match()->associate($match);
-		$firestring->match_id = 18;
+		
 		$firestring->save();
 
-		return Redirect::action('PositionsController@indexFirestring');
+		return Redirect::to('/indexfirestring/'.$match_id);
 	}
 	
 

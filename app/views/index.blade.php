@@ -1,8 +1,5 @@
 @extends('_master')
 
-@section('css')
-<link href="../public/css/bootstrap.css" rel="stylesheet">
-@stop
 
 @section('Index')
 	
@@ -33,7 +30,7 @@
 							<td>{{ $match->place }}</td>
 							<td>{{ $match->date }}</td>
 							<td>{{ $match->rangename }}</td>
-							<td><a href="{{ action('PositionsController@indexFirestring') }}">Firestrings</a></td>
+							<td><a href="/indexfirestring/{{$match->id}}">Firestrings</a></td>
 							<td><a href="{{ action('PositionsController@edit', $match->id) }}" class="btn btn-default">Edit</a>
 							<a href="{{ action('PositionsController@delete', $match->id) }}"  class="btn btn-danger">Delete</a> </td>
 						</tr>

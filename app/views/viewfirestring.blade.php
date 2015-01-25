@@ -1,8 +1,6 @@
 @extends('_firestringmaster')
 
-@section('css')
-<link href="../public/css/bootstrap.css" rel="stylesheet">
-@stop
+
 <br>
 <br>
 @section('createfirestring')

@@ -1,10 +1,5 @@
 @extends('_firestringmaster')
 
-@section('css')
-<link href="../public/css/bootstrap.css" rel="stylesheet">
-@stop
-
-
 @section('editfirestring')
 	
 	@foreach($errors->all() as $message) 
