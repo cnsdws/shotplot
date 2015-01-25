@@ -179,7 +179,7 @@ class PositionsController extends BaseController {
 
 	public function createFirestring(Match $match)
 	{
-		// Handle the form for creating a shooting match
+		// Display the form for creating a shooting match
 	
 		return View::make('createfirestring', compact('match'));
 	}
