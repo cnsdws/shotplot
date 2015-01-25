@@ -215,10 +215,11 @@ class PositionsController extends BaseController {
 		$firestring->shot8value = Input::get('shot8value');
 		$firestring->shot9value = Input::get('shot9value');
 		$firestring->shot10value = Input::get('shot10value');
+		$firestring->match()->associate($match);
 		
 		$firestring->save();
 
-		return Redirect::to('/indexfirestring/'.$match_id);
+		return Redirect::to('/indexfirestring/'.$match->id);
 	}
 	
 

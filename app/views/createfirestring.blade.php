@@ -109,7 +109,7 @@
 		{{ Form::input('hidden', 'match_id', $match_id) }}
 		{{ Form::submit('Create', ['class' => 'btn btn-primary']) }}
 		
-		<a href="{{ url::to('/indexfirestring/'.$match_id) }}" class="btn btn-link">Cancel</a>
+		<a href="{{ URL::to('/indexfirestring/'.$match_id) }}" class="btn btn-link">Cancel</a>
 
 
 		
