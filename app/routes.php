@@ -70,6 +70,7 @@ Route::get('/createfirestring', 'PositionsController@createFirestring');
 Route::get('/editfirestring', 'PositionsController@editFirestring');
 Route::get('/deletefirestring', 'PositionsController@deleteFirestring');
 Route::get('/indexfirestring', 'PositionsController@indexFirestring');
+Route::get('/displayfirestring', 'PositionsController@displayFirestring');
 
 //Route::get('/list', 'TransactionsController@listTransactions');
 Route::get('/signup',
@@ -170,16 +171,6 @@ Route::post('/login',
             }
 
             return Redirect::to('login');
-        }
-    )
-);
-
-Route::post('/changepassword', 
-    array(
-        'before' => 'csrf', 
-        function() {
-
-            
         }
     )
 );

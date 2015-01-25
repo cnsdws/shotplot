@@ -25,7 +25,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'shotplot',
 			'username'  => 'root',
-			'password'  => 'mHJnXS1yeT',
+			'password'  => 'root',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

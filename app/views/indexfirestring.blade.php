@@ -26,7 +26,7 @@
 				</p>
 
 			@else
-				
+
 				<table class="table table-striped">
 					<thead>
 						<tr>
@@ -52,7 +52,7 @@
 							<td></td>
 
 							
-							<td><a href="{{ action('PositionsController@indexFirestring') }}">view details</a></td>
+							<td><a href="{{ action('PositionsController@displayFirestring') }}">view details</a></td>
 							<td><td><a href="{{ action('PositionsController@editFirestring', $match->id) }}" class="btn btn-default">Edit</a>
 							<a href="{{ action('PositionsController@deleteFirestring', $match->id) }}"  class="btn btn-danger">Delete</a> </td></td>
 						</tr>

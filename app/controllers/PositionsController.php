@@ -145,6 +145,11 @@ class PositionsController extends BaseController {
 		return View::make('editfirestring');
 	}
 
+	public function displayFirestring()
+	{
+		return View::make('displayfirestring');
+	}
+
 
 	public function deleteFirestring(Firestring $firestring)
 	{
