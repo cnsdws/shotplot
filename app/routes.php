@@ -119,6 +119,7 @@ Route::post('/updatepassword', 'PositionsController@updatePassword');
 
 Route::post('/createfirestring', 'PositionsController@handleCreateFirestring');
 Route::post('/deletefirestring/{id}', 'PositionsController@handleDeleteFirestring');
+Route::post('/editfirestring/{id}', 'PositionsController@handleEditFirestring');
 
 
 

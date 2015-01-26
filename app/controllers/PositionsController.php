@@ -142,16 +142,33 @@ class PositionsController extends BaseController {
 	
 	public function editFirestring($id)
 	{
-		// Show the edit position form.
-		return View::make('editFirstring', array(
+		$firestring = Firestring::find($id);
+		return View::make('editFirestring', array(
 			'firestring'=>$firestring
 			));
 	}
 
-	
-	public function displayFirestring($id)
+	public function handleEditFirestring($id)
 	{
-		return View::make('displayfirestring');
+		$firestring = Firestring::findOrFail(Input::get('id'));
+		$match_id = $firestring->match_id;
+		$firestring->fire_string_number = Input::get('fire_string_number');
+		$firestring->distance = Input::get('distance');
+		$firestring->target = Input::get('target');
+		$firestring->relay = Input::get('relay');
+		$firestring->lightdirection = Input::get('lightdirection');
+		$firestring->winddirection = Input::get('winddirection');
+		$firestring->windspeed = Input::get('windspeed');
+		$firestring->elevation = Input::get('elevation');
+		$firestring->windage = Input::get('windage');
+
+		
+		$firestring->save();
+
+		return Redirect::to('indexfirestring/'.$match_id);
+
+		
+
 	}
 
 
@@ -227,6 +244,13 @@ class PositionsController extends BaseController {
 
 		return Redirect::to('/indexfirestring/'.$match->id);
 	}
+
+	public function displayFirestring($id)
+	{
+		return View::make('displayfirestring');
+	}
+
+
 	
 
 }
