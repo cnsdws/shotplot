@@ -7,7 +7,7 @@
     <!-- Main page section for stock positions listing -->
     <br>
     <br>
-        <h3>Shotplot Index</h3>
+        <h3>Your Shooting Matches</h3>
 
          @if ($matches->isEmpty())
 				<p>There are no shooting matches created! </p>

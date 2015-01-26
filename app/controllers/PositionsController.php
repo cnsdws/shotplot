@@ -143,7 +143,7 @@ class PositionsController extends BaseController {
 	public function editFirestring($id)
 	{
 		$firestring = Firestring::find($id);
-		return View::make('editFirestring', array(
+		return View::make('editfirestring', array(
 			'firestring'=>$firestring
 			));
 	}
