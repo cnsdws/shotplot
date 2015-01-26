@@ -24,8 +24,8 @@
 				<table class="table table-striped">
 					<thead>
 						<tr>
-							<th>String Number</th>
-							<th>Target</th>
+							<th>Firestring Number</th>
+							<th>Target Number</th>
 							<th>Distance</th>
 							<th>Relay</th>
 							<th>View</th>

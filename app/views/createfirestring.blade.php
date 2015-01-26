@@ -22,7 +22,7 @@
 			
 			<div class="form-group">
 				{{ Form::input('text', 'fire_string_number') }}
-				{{ Form::label('fire_string_number','Target Number') }}
+				{{ Form::label('fire_string_number','Fire String Number') }}
 			</div>
 			<div class="form-group">
 				{{ Form::input('text', 'distance') }}
@@ -30,7 +30,7 @@
 			</div>
 			<div class="form-group">
 				{{ Form::input('text', 'target') }}
-				{{ Form::label('target','Target Type') }}
+				{{ Form::label('target','Target Number') }}
 			</div>
 			<div class="form-group">
 				{{ Form::input('text', 'relay') }}
