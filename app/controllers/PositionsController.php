@@ -158,6 +158,7 @@ class PositionsController extends BaseController {
 	public function deleteFirestring($id)
 	{
 		// Show delete confirmation page.
+		$firestring = Firestring::find($id);
 		return View::make('deletefirestring', array(
 			'firestring'=>$firestring
 			));
@@ -168,7 +169,6 @@ class PositionsController extends BaseController {
 	public function handleDeleteFirestring($id)
 	{
 		/// Handle the delete confirmation.
-		$user = Auth::id();
 		$firestring = Firestring::find($id);
 		$match_id = $firestring->match_id;
 		$firestring->delete();
