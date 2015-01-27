@@ -41,7 +41,7 @@
 							<td>{{ $firestring->target }}</td>
 							<td>{{ $firestring->distance }}</td>
 							<td>{{ $firestring->relay }}</td>
-							<td><a href="">view details</a></td>
+							<td><a href="/displayfirestring/{{$firestring->id}}">view details</a></td>
 							<td><a href="/editfirestring/{{$firestring->id}}" class="btn btn-default">Edit</a>
 							<a href="/deletefirestring/{{$firestring->id}}"  class="btn btn-danger">Delete</a> </td></td>
 						</tr>
