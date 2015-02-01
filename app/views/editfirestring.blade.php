@@ -23,8 +23,9 @@
 						<label for="fire_string_number">Firestring Number</label>
 					</div>
 					<div class="form-group">
-						<input type="text" class="form-group" name="distance" value="{{ $firestring->distance }}" />
+						<input type="select" class="form-group" name="distance" value="{{ $firestring->distance }}" />
 						<label for="distance">Distance</label>
+						
 					</div>
 					<div class="form-group">
 						<input type="text" class="form-group" name="target" value="{{ $firestring->target }}" />

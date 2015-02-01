@@ -98,6 +98,7 @@ class PositionsController extends BaseController {
         return Redirect::action('PositionsController@index');
 	}
 	
+
 	public function updatePassword()
 	{
 		$validator = Validator::make(Input::all(), 

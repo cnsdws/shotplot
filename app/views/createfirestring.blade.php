@@ -11,6 +11,7 @@
 
     <!-- Main page section for create position -->
     <h4>Add a new String of Fire</h4>
+    <br>
 
 <div class = "row">
 	    <div class = "col-md-4"> 
@@ -25,7 +26,12 @@
 				{{ Form::label('fire_string_number','Fire String Number') }}
 			</div>
 			<div class="form-group">
-				{{ Form::input('text', 'distance') }}
+				{{ Form::select('distance', array(
+					'200 Yard Slow Fires' => '200 Yard Slow Fire',
+					'200 Yard Rapid Fire' => '200 Yard Rapid Fire',
+					'300 Yard Rapid Fire' => '300 Yard Rapid Fire',
+					'600 Yard Slow Fire' => '600 Yard Slow Fire',
+					), '200 Yard Slow Fire') }}
 				{{ Form::label('distance','Distance') }}
 			</div>
 			<div class="form-group">
@@ -37,27 +43,53 @@
 				{{ Form::label('relay','Relay Number') }}
 			</div>
 			<div class="form-group">
-				{{ Form::input('text', 'lightdirection') }}
+				{{ Form::select('lightdirection', array(
+					'1:00' => '1:00',
+					'2:00' => '2:00',
+					'3:00' => '3:00',
+					'4:00' => '4:00',
+					'5:00' => '5:00',
+					'6:00' => '6:00',
+					'7:00' => '7:00',
+					'8:00' => '8:00',
+					'9:00' => '9:00',
+					'10:00' => '10:00',
+					'11:00' => '11:00',
+					'12:00' => '12:00',
+					), '1:00') }}
 				{{ Form::label('lightdirection','Light Direction') }}
 			</div>
 			<div class="form-group">
-				{{ Form::input('text', 'winddirection') }}
+				{{ Form::select('winddirection', array(
+					'1:00' => '1:00',
+					'2:00' => '2:00',
+					'3:00' => '3:00',
+					'4:00' => '4:00',
+					'5:00' => '5:00',
+					'6:00' => '6:00',
+					'7:00' => '7:00',
+					'8:00' => '8:00',
+					'9:00' => '9:00',
+					'10:00' => '10:00',
+					'11:00' => '11:00',
+					'12:00' => '12:00',
+					), '1:00') }}
 				{{ Form::label('winddirection','Wind Direction') }}
 			</div>
 			<div class="form-group">
 				{{ Form::input('text', 'windspeed') }}
-				{{ Form::label('windspeed','Wind Speed') }}
+				{{ Form::label('windspeed','Wind Speed (MPH)') }}
 			</div>
 			<div class="form-group">
 				{{ Form::input('text', 'elevation') }}
-				{{ Form::label('elevation','Elevation') }}
+				{{ Form::label('elevation','Rifle Elevation') }}
 			</div>
 			<div class="form-group">
 				{{ Form::input('text', 'windage') }}
-				{{ Form::label('windage','Windage') }}
+				{{ Form::label('windage','Rifle Windage') }}
 			</div>
 		</div>
-
+		<h4>Scores</h4>
 		<div class = "col-md-2"> 
 			<div class="form-group">
 			{{ Form::input('text', 'shot1value', null, ['size' => '2', 'maxlength'=>'3']) }}
