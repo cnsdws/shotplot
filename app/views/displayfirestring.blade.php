@@ -105,37 +105,7 @@
 			<div class = "col-md-4">
 			
 				<div id="flashContent">
-					<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="550" height="550" id="shotplot" align="middle">
-						<param name="movie" value="shotplot.swf" />
-						<param name="quality" value="high" />
-						<param name="bgcolor" value="#ffffff" />
-						<param name="play" value="true" />
-						<param name="loop" value="true" />
-						<param name="wmode" value="window" />
-						<param name="scale" value="showall" />
-						<param name="menu" value="true" />
-						<param name="devicefont" value="false" />
-						<param name="salign" value="" />
-						<param name="allowScriptAccess" value="sameDomain" />
-						<!--[if !IE]>-->
-						<object type="application/x-shockwave-flash" data="shotplot.swf" width="550" height="550">
-							<param name="movie" value="shotplot.swf" />
-							<param name="quality" value="high" />
-							<param name="bgcolor" value="#ffffff" />
-							<param name="play" value="true" />
-							<param name="loop" value="true" />
-							<param name="wmode" value="window" />
-							<param name="scale" value="showall" />
-							<param name="menu" value="true" />
-							<param name="devicefont" value="false" />
-							<param name="salign" value="" />
-							<param name="allowScriptAccess" value="sameDomain" />
-						<!--<![endif]-->
-							
-						<!--[if !IE]>-->
-						</object>
-						<!--<![endif]-->
-					</object>
+					<object width="550" height="550" data ="/shotplot/public/shotplot.swf" align="middle"></object>
 		</div>
 
 			</div> 
