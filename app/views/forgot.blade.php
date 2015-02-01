@@ -23,7 +23,7 @@
                 Enter your registered Email address<br>
                 {{ Form::text('email') }}
                 {{ Form::submit('Reset') }}
-                {{ Form::token() }}
+                
             {{ Form::close() }}   
 
                   

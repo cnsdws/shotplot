@@ -187,39 +187,6 @@ Route::post('/login',
     )
 );
 
-Route::post('/forgotpassword', 
-    array(
-        'before' => 'csrf', 
-        function() {
-
-            $rules = array(
-			    'email' => 'email|unique:users,email',
-    
-			);          
-
-			$validator = Validator::make(Input::all(),
-				array(
-						'email'=> 'required|email'
-					)
-			);
-
-			if($validator->fails()) {
-
-    		return Redirect::to('/forgotpassword')
-        		->withInput()
-        		->withErrors($validator);
-			}
-			else {
-				//change password
-			}
-
-			return Redirect::route('/forgotpassord')
-				->with('global', 'Could not reset your password.');
-
-       	}
-   	)
-);
-
 
 Route::get('/debug', function() {
 		echo '<pre>';

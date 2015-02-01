@@ -24,9 +24,7 @@
 
             or
             <a href='signup'>Sign up</a>   
-            <br>
-            <br>
-            <a href='forgotpassword'>Forgot Password</a>  
+            
         </div>
         <div class = "col-md-8"> 
             <a class="float-right" href="#">
