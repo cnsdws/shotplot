@@ -103,6 +103,7 @@
 				{{ Form::label('shot10value','Shot 10') }}
 			</div>
 		</div>	
+		
 	</div>
 
 		
