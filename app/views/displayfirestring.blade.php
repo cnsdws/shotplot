@@ -105,7 +105,7 @@
 			<div class = "col-md-4">
 			
 				<div id="flashContent">
-					<object width="550" height="550" data ="/shotplot/public/shotplot.swf" align="middle"></object>
+					<object width="550" height="550" data ="shotplot.swf" align="middle"></object>
 		</div>
 
 			</div> 
