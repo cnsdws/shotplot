@@ -2,7 +2,7 @@
 
 @section('editfirestring')
 <br>
- <li><a href="/indexfirestring/{{ $firestring->match_id }}" class="navbar-brand">Back to Firestrings</a></li>
+<li><a href="/indexfirestring/{{ $firestring->match_id }}" class="navbar-brand">Back to Firestrings</a></li>
 
 	
 	@foreach($errors->all() as $message) 
@@ -103,7 +103,7 @@
 			    </table>
 			</div>
 			<div class = "col-md-4">
-			
+				
 				<div id="flashContent">
 					<object width="550" height="550" data ="/200Yard.swf" align="middle"></object>
 		</div>
