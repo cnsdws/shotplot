@@ -103,7 +103,7 @@
 			    </table>
 			</div>
 			<div class = "col-md-4">
-				
+				<h4> Plot Your Shots!</h4>
 				<div id="flashContent">
 					<object width="550" height="550" data ="/200Yard.swf" align="middle"></object>
 		</div>
