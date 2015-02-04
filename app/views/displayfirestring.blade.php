@@ -108,21 +108,9 @@
 				<div id="flashContent">
 					<object width="550" height="550" data ="/200Yard.swf" align="middle"></object>
 				</div>
-				<br>
-				<br>
-				<br>
-				<ul class="tabContainer">
-    				<!-- The jQuery generated tabs go here -->
-				</ul>
-
-				<div class="clear"></div>
-
-					<div id="tabContent">
-    					<div id="contentHolder">
-        					<!-- The AJAX fetched content goes here -->
-    					</div>
-					</div>
-				</div> 
+			</div>
+				
+				
       	</div>
                      
 @stop
