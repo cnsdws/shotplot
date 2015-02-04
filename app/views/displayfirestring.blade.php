@@ -1,5 +1,10 @@
 @extends('_firestringmaster')
 
+@section('css')
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js"></script>
+<script type="text/javascript" src="/js/script.js"></script>
+@stop
+
 @section('editfirestring')
 <br>
 <li><a href="/indexfirestring/{{ $firestring->match_id }}" class="navbar-brand">Back to Firestrings</a></li>
@@ -104,12 +109,26 @@
 			</div>
 			<div class = "col-md-4">
 				<h4> Plot Your Shots!</h4>
+				
 				<div id="flashContent">
 					<object width="550" height="550" data ="/200Yard.swf" align="middle"></object>
-		</div>
+				</div>
+				<br>
+				<br>
+				<br>
+				<ul class="tabContainer">
+    				<!-- The jQuery generated tabs go here -->
+				</ul>
 
-			</div> 
-       </div>
+				<div class="clear"></div>
+
+					<div id="tabContent">
+    					<div id="contentHolder">
+        					<!-- The AJAX fetched content goes here -->
+    					</div>
+					</div>
+				</div> 
+      	</div>
                      
 @stop
 
