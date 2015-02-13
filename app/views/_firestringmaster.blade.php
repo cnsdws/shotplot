@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
   <html lang="en">
   <head>
@@ -39,50 +38,41 @@
             <li><a href="{{ action('PositionsController@index') }}" class="navbar-brand">Matches</a></li> 
           </ul>
         </div>
-        <!--/.nav-collapse -->
+        <!--/.nav-collapse -->  
         
-        
-        
+        <!-- Check for login-auth -->
         @if(Auth::check())
-        <a href='/logout'>Log out {{ Auth::user()->email; }}</a>
+         <a href='/logout'>Log out {{ Auth::user()->firstname }}</a>
         @else 
         <a href='/signup'>Sign up</a> or <a href='/login'>Login</a>
         @endif
       </div>
-      </div>
   </div>
-    <br>
-    <br>
-    <br>
-    <div class="container">
+  <br>
+  <br>
+  <br>
+  <div class="container">
+    <div class="starter-template">
+      <ul class="media-list">
+        <li class="media">
+          <div class="media-body">
 
-       <!-- Password Generator -->
-      <div class="starter-template">
-        <ul class="media-list">
-          <li class="media">
-            <div class="media-body">
-
-              @if(Session::get('flash_message'))
-              <div class='flash-message'>{{ Session::get('flash_message') }}</div>
-              @endif
-              <!-- Yield to various viewer blades -->
-		         
-              @yield('createfirestring')
-              @yield('editfirestring')
-              @yield('deletefirestring')
-              @yield('indexfirestring')
-	              
-                     
-            </div>
-          </li>
-       </ul>
-     	
-     </div>
-
+            @if(Session::get('flash_message'))
+            <div class='flash-message'>{{ Session::get('flash_message') }}</div>
+            @endif
+            <!-- Yield to various viewer blades -->
+           
+            @yield('createfirestring')
+            @yield('editfirestring')
+            @yield('deletefirestring')
+            @yield('indexfirestring')
+              
+                   
+          </div>
+        </li>
+      </ul>
     </div>
-    
-    
-
+  </div>
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

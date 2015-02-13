@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
   <html lang="en">
   <head>
@@ -21,67 +20,63 @@
   
   <body>
   
-  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-         <!--  <a class="navbar-brand" href="http://dwa15.com">CSCI - E15</a> -->
-        </div>
-        <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="http://www.shotplot.net">Home</a></li>
-            <li><a href="{{ action('PositionsController@index') }}" class="navbar-brand">Matches</a></li>
-            <li><a href="{{ action('PositionsController@create') }}" class="navbar-brand">Create Match</a></li>
-            <li><a href="{{ action('PositionsController@myaccount') }}" class="navbar-brand">My Account</a></li>
-          </ul>   
-        </div>
-        <!--/.nav-collapse -->
-        
-        
-        
-        @if(Auth::check())
-        <a href='/logout'>Log out {{ Auth::user()->firstname }}</a>
-        @else 
-        <a href='/signup'>Sign up</a> or <a href='/login'>Login</a>
-        @endif
-      </div>
-      </div>
-  </div>
-    <br>
-    <br>
-    <br>
-    <div class="container">
-
-       <!-- Password Generator -->
-      <div class="starter-template">
-        <ul class="media-list">
-          <li class="media">
-            <div class="media-body">
-              @if(Session::get('flash_message'))
-              <div class='flash-message'>{{ Session::get('flash_message') }}</div>
-              @endif
-              <!-- Yield to various viewer blades -->
-		          @yield('Index')
-              @yield('Create')
-              @yield('Edit')
-              @yield('Delete')
-              @yield('Transactions')
-              @yield('Signup')
-              @yield('Login')
-	              
-                     
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+             <!--  <a class="navbar-brand" href="http://dwa15.com">CSCI - E15</a> -->
             </div>
-          </li>
-       </ul>
-     	
-     </div>
+            <div class="collapse navbar-collapse">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="http://www.shotplot.net">Home</a></li>
+                <li><a href="{{ action('PositionsController@index') }}" class="navbar-brand">Matches</a></li>
+                <li><a href="{{ action('PositionsController@create') }}" class="navbar-brand">Create Match</a></li>
+                <li><a href="{{ action('PositionsController@myaccount') }}" class="navbar-brand">My Account</a></li>
+              </ul>   
+            </div>
+            <!--/.nav-collapse -->
+            
+            
+            
+            @if(Auth::check())
+            <a href='/logout'>Log out {{ Auth::user()->firstname }}</a>
+            @else 
+            <a href='/signup'>Sign up</a> or <a href='/login'>Login</a>
+            @endif
+          </div>
+      </div>
+      <br>
+      <br>
+      <br>
+      <div class="container">
 
-    </div>
+           <!-- Password Generator -->
+          <div class="starter-template">
+            <ul class="media-list">
+              <li class="media">
+                <div class="media-body">
+                  @if(Session::get('flash_message'))
+                  <div class='flash-message'>{{ Session::get('flash_message') }}</div>
+                  @endif
+                  <!-- Yield to various viewer blades -->
+    		          @yield('Index')
+                  @yield('Create')
+                  @yield('Edit')
+                  @yield('Delete')
+                  @yield('Transactions')
+                  @yield('Signup')
+                  @yield('Login')    	              
+                </div>
+              </li>
+           </ul>
+          </div>
+
+      </div>
     
     
 

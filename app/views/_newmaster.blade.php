@@ -22,7 +22,7 @@
   <body>
       
     @if(Auth::check())
-    <a href='/logout'>Log out {{ Auth::user()->email; }}</a>
+     <a href='/logout'>Log out {{ Auth::user()->firstname }}</a>
     @endif
   
     @if(Session::get('flash_message'))

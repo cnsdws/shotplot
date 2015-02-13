@@ -27,7 +27,7 @@
 			</div>
 			<div class="form-group">
 				{{ Form::select('distance', array(
-					'200 Yard Slow Fires' => '200 Yard Slow Fire',
+					'200 Yard Slow Fire' => '200 Yard Slow Fire',
 					'200 Yard Rapid Fire' => '200 Yard Rapid Fire',
 					'300 Yard Rapid Fire' => '300 Yard Rapid Fire',
 					'600 Yard Slow Fire' => '600 Yard Slow Fire',
