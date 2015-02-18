@@ -11,48 +11,6 @@
 |
 */
 
-Route::get('/practice-match', function() {
-
-    # The all() method will fetch all the rows from a Model/table
-    
-    $matches = Match::where('user_id', '=', Auth::user()->id)->get();
-
-    # Make sure we have results before trying to print them...
-    if($matches->isEmpty() != TRUE) {
-
-        # Typically we'd pass $books to a View, but for quick and dirty demonstration, let's just output here...
-        foreach($matches as $match) {
-            echo $match->id.' id'.' and '. $match->user_id.' user <br>';
-        }
-    }
-    else {
-        return 'No matches found';
-    }
-
-});
-
-Route::get('/practice-firestring', function() {
-
-    # The all() method will fetch all the rows from a Model/table
-    $firestrings = Firestring::all();
-
-    # Make sure we have results before trying to print them...
-    if($firestrings->isEmpty() != TRUE) {
-
-        # Typically we'd pass $books to a View, but for quick and dirty demonstration, let's just output here...
-        foreach($firestrings as $firestring) {
-            echo $firestring->id.' id'.' and '. $firestring->match_id.' match <br>';
-        }
-    }
-    else {
-        return 'No matches found';
-    }
-
-});
-
-
-
-
 // Bind route parameters.
 Route::model('match', 'Match');
 Route::model('firestring','Firestring');
@@ -186,40 +144,3 @@ Route::post('/login',
         }
     )
 );
-
-
-Route::get('/debug', function() {
-		echo '<pre>';
-		echo '<h1>environment.php</h1>';
-		$path   = base_path().'/environment.php';
-		try {
-			$contents = 'Contents: '.File::getRequire($path);
-			$exists = 'Yes';
-		}
-		catch (Exception $e) {
-			$exists = 'No. Defaulting to `production`';
-			$contents = '';
-		}
-		echo "Checking for: ".$path.'<br>';
-		echo 'Exists: '.$exists.'<br>';
-		echo $contents;
-		echo '<br>';
-		echo '<h1>Environment</h1>';
-		echo App::environment().'</h1>';
-		echo '<h1>Debugging?</h1>';
-		if(Config::get('app.debug')) echo "Yes"; else echo "No";
-		echo '<h1>Database Config</h1>';
-		print_r(Config::get('database.connections.mysql'));
-		echo '<h1>Test Database Connection</h1>';
-		try {
-			$results = DB::select('SHOW DATABASES;');
-			echo '<strong style="background-color:green; padding:5px;">Connection confirmed</strong>';
-			echo "<br><br>Your Databases:<br><br>";
-			print_r($results);
-		}
-		catch (Exception $e) {
-			echo '<strong style="background-color:crimson; padding:5px;">Caught exception: ', $e->getMessage(), "</strong>\n";
-		}
-		echo '</pre>';
-
-});
