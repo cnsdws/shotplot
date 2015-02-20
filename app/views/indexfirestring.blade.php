@@ -17,6 +17,7 @@
 				<br>
 				<p>
 					<h4>There are no strings of fire for this match! </h4>
+					<p>Select "Create Firestring" from the menu to start collecting your data!</p>
 				</p>
 
 			@else

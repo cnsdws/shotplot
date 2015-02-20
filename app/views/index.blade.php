@@ -10,7 +10,8 @@
         <h3>Your Shooting Matches</h3>
 
          @if ($matches->isEmpty())
-				<p>There are no shooting matches created! </p>
+				<h4>There are no shooting matches created! </h4>
+				<p>Select "Create Match" from the menu to start collecting your data!</p>
 
 			@else
 				<table class="table table-striped">

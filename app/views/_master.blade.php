@@ -33,7 +33,6 @@
             </div>
             <div class="collapse navbar-collapse">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="http://www.shotplot.net">Home</a></li>
                 <li><a href="{{ action('PositionsController@index') }}" class="navbar-brand">Matches</a></li>
                 <li><a href="{{ action('PositionsController@create') }}" class="navbar-brand">Create Match</a></li>
                 <li><a href="{{ action('PositionsController@myaccount') }}" class="navbar-brand">My Account</a></li>

@@ -16,20 +16,21 @@
 		<input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
 
 		<div class="form-group">
-			{{ Form::input('text', 'place') }}
 			{{ Form::label('place','Place') }}
+			{{ Form::input('text', 'place') }}
+			
 		</div>
 		<div class="form-group">
-			{{ Form::input('date', 'date', null) }}
 			{{ Form::label('date', 'Date') }}
+			{{ Form::input('date', 'date', null) }}
 		</div>
 		<div class="form-group">
-			{{ Form::input('text', 'riflenumber', null) }}
 			{{ Form::label('riflenumber','Rifle Number') }}
+			{{ Form::input('text', 'riflenumber', null) }}
 		</div>
 		<div class="form-group">
-			{{ Form::input('text', 'rangename', null) }}
 			{{ Form::label('rangename','Range-Distance') }}
+			{{ Form::input('text', 'rangename', null) }}
 		</div>
 		{{ Form::submit('Create', ['class' => 'btn btn-primary']) }}
 		<a href="{{ action('PositionsController@index') }}" class="btn btn-link">Cancel</a>

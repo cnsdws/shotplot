@@ -30,32 +30,10 @@ Route::get('/deletefirestring/{id}', 'PositionsController@deleteFirestring');
 Route::get('/indexfirestring/{id}', 'PositionsController@indexFirestring');
 Route::get('/displayfirestring/{id}', 'PositionsController@displayFirestring');
 
-//Route::get('/list', 'TransactionsController@listTransactions');
-Route::get('/signup',
-	array(
-		'before' => 'guest',
-		function() {
-			return View::make('signup');
-			}
-		)
-	);
-Route::get('/login',
-    array(
-        'before' => 'guest',
-        function() {
-            return View::make('login');
-        }
-    )
-);
+Route::get('/signup', 'LoginController@signup');
 
-Route::get('/forgotpassword',
-	array(
-		'before' => 'guest',
-		function() {
-			return View::make('forgot');
-			}
-		)
-	);
+Route::get('/login', 'LoginController@login');
+    
 
 
 Route::get('/logout', function() {

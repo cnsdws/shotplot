@@ -4,7 +4,7 @@
 <!-- Sign up page -->
 <div class = "container">
     <div class = "row">
-        <div class = "col-md-4"> 
+            <div class = "col-md-4"> 
             <br>
             <a class="float-right" href="#">
             <img class="media-object" src="images/ShotPlotLogo.jpg" alt = "ShotPlot" width="300" height="160" style="float:center">
@@ -20,6 +20,8 @@
         </div>
 
         <div class = "col-md-4"> 
+            <br>
+            <br>
             <p>
             Please enter your name, a valid email, and password of at least 6 characters to sign up.
             <p>
