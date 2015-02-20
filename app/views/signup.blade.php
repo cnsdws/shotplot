@@ -1,7 +1,7 @@
 @extends('_newmaster')
 
 @section('title')
-<title>Sign Up for Shotplot.net</title>
+<title>Sign Up for ShotPlot.net</title>
 @stop
 
 <!-- Sign up page -->
@@ -12,7 +12,7 @@
             <a class="float-right" href="#">
             <img class="media-object" src="images/ShotPlotLogo.jpg" alt = "ShotPlot" width="300" height="160" style="float:center">
             </a>
-            <h2>Welcome to Shotplot!</h2>
+            <h2>Welcome to ShotPlot!</h2>
 
             @foreach($errors->all() as $message) 
             <div class='error'>{{ $message }}</div>
