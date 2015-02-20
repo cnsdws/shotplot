@@ -13,12 +13,21 @@ class LoginController extends BaseController {
 	}
    	
 
-	public function login()
+	public function loginnow()
 	{
 		return View::make('login');
 		
 	}
 
+
+	public function logoutnow()
+	{
+		# Log out
+    	Auth::logout();
+
+    	# Send them to the homepage
+   		return View::make('login');
+	}
 	
 
 }

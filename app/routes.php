@@ -31,34 +31,9 @@ Route::get('/indexfirestring/{id}', 'PositionsController@indexFirestring');
 Route::get('/displayfirestring/{id}', 'PositionsController@displayFirestring');
 
 
-Route::get('/signup',
-   array(
-       'before' => 'guest',
-       function() {
-           return View::make('signup');
-           }
-       )
-   );
-Route::get('/login',
-    array(
-        'before' => 'guest',
-        function() {
-            return View::make('login');
-        }
-    )
-);
-    
-
-
-Route::get('/logout', function() {
-
-    # Log out
-    Auth::logout();
-
-    # Send them to the homepage
-    return View::make('login');
-
-});
+Route::get('/signup', 'LoginController@signup'); 
+Route::get('/login', 'LoginController@loginnow');    
+Route::get('/logout', 'LoginController@logoutnow');
 
 
 // Handle form submissions.
@@ -99,7 +74,7 @@ Route::post('/signup',
         		->with('flash_message', 'Sign up failed; please fix the errors listed below.')
         		->withInput()
         		->withErrors($validator);
-}
+            }
             # Try to add the user 
             try {
                 $user->save();

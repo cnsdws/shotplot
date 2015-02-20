@@ -1,8 +1,7 @@
 <?php
 class PositionsController extends BaseController {
 	/**
-	*Controller used for various actions to create, update and deletd stock positions and to record
-	* stock transactions.
+	*Controller used for various actions to create, update and deletd matches and firestrings.
 	*/
 	public function index()
 	{
