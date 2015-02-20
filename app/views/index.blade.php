@@ -1,7 +1,7 @@
 @extends('_master')
 @section('title')
 <title>Your Matches</title>
-@end
+@stop
 
 @section('Index')
 	

@@ -1,7 +1,7 @@
 @extends('_newmaster')
 @section('title')
 <title>Login</title>
-@end
+@stop
 
 
 @section('login')

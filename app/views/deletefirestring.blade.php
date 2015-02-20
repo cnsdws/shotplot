@@ -1,7 +1,7 @@
 @extends('_firestringmaster')
 @section('title')
 <title>Delete Firestring</title>
-@end
+@stop
 
 @section('deletefirestring')
 

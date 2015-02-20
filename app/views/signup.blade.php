@@ -2,7 +2,7 @@
 
 @section('title')
 <title>Sign Up for Shotplot.net</title>
-@end
+@stop
 
 <!-- Sign up page -->
 <div class = "container">

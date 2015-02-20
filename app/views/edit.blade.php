@@ -1,7 +1,7 @@
 @extends('_master')
 @section('title')
 <title>Edit Match {{$match->place}}</title>
-@end
+@stop
 
 @section('Edit')
 	

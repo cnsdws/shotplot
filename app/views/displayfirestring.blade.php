@@ -1,7 +1,7 @@
 @extends('_firestringmaster')
 @section('title')
 <title>Display Firestring</title>
-@end
+@stop
 
 @section('editfirestring')
 <br>

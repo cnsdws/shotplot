@@ -1,7 +1,7 @@
 @extends('_firestringmaster')
 @section('title')
 <title>Your Firestrings for {{$match->place}}</title>
-@end
+@stop
 
 
 @section('indexfirestring')

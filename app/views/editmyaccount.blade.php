@@ -1,7 +1,7 @@
 @extends('_master')
 @section('title')
 <title>Edit My Account</title>
-@end
+@stop
 
 @section('Edit')
 	
