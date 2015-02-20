@@ -1,4 +1,7 @@
 @extends('_master')
+@section('title')
+<title>Delete Match</title>
+@end
 
 
 @section('Delete')

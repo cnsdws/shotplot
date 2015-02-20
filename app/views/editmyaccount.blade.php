@@ -1,4 +1,7 @@
 @extends('_master')
+@section('title')
+<title>Edit My Account</title>
+@end
 
 @section('Edit')
 	
