@@ -35,7 +35,7 @@
               <ul class="nav navbar-nav">
                 <li><a href="{{ action('PositionsController@index') }}" class="navbar-brand">Matches</a></li>
                 <li><a href="{{ action('PositionsController@create') }}" class="navbar-brand">Create Match</a></li>
-                
+                <li><a href="{{ action('PositionsController@myaccount') }}" class="text-primary">My Account</a></li>
               </ul>   
             </div>
             <!--/.nav-collapse -->
@@ -47,7 +47,7 @@
             @else 
             <a href='/signup'>Sign up</a> or <a href='/login'>Login</a>
             @endif
-            <li><a href="{{ action('PositionsController@myaccount') }}" class="text-primary">My Account</a></li>
+            
           </div>
       </div>
       <br>
