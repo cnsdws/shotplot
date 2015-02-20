@@ -1,5 +1,7 @@
 @extends('_master')
-
+@section('title')
+<title>Create a Match</title>
+@end
 
 <br>
 <br>

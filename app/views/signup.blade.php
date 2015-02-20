@@ -1,5 +1,8 @@
 @extends('_newmaster')
 
+@section('title')
+<title>Sign Up for Shotplot.net</title>
+@end
 
 <!-- Sign up page -->
 <div class = "container">

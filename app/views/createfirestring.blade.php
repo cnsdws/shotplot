@@ -1,5 +1,7 @@
 @extends('_firestringmaster')
-
+@section('title')
+<title>Create a Firestring</title>
+@end
 
 <br>
 <br>
