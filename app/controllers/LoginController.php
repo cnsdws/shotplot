@@ -1,8 +1,7 @@
 <?php
 class LoginController extends BaseController {
 	/**
-	*Controller used for various actions to create, update and deletd stock positions and to record
-	* stock transactions.
+	*Controller used for various actions to login, logout and access the signup page.
 	*/
 	public function signup()
 	{
@@ -26,7 +25,7 @@ class LoginController extends BaseController {
     	Auth::logout();
 
     	# Send them to the homepage
-   		return View::make('login');
+   		return Redirect::to('/');
 	}
 	
 
