@@ -33,7 +33,7 @@
 							<td>{{ $match->place }}</td>
 							<td>{{ $match->date }}</td>
 							<td>{{ $match->rangename }}</td>
-							<td><a href="/indexfirestring/{{$match->id}}">Firestrings</a></td>
+							<td><a href="/firestring/{{$match->id}}">Firestrings</a></td>
 							<td><a href="{{ action('PositionsController@edit', $match->id) }}" class="btn btn-default">Edit</a>
 							<a href="{{ action('PositionsController@delete', $match->id) }}"  class="btn btn-danger">Delete</a> </td>
 						</tr>

@@ -17,6 +17,7 @@ Route::model('firestring','Firestring');
 
 // Show pages.
 Route::get('/', 'PositionsController@index');
+Route::get('/match', 'PositionsController@index');
 
 
 Route::get('/create', 'PositionsController@create');
@@ -28,6 +29,7 @@ Route::get('/createfirestring/{id}', 'PositionsController@createFirestring');
 Route::get('/editfirestring/{id}', 'PositionsController@editFirestring');
 Route::get('/deletefirestring/{id}', 'PositionsController@deleteFirestring');
 Route::get('/indexfirestring/{id}', 'PositionsController@indexFirestring');
+Route::get('/firestring/{id}', 'PositionsController@indexFirestring');
 Route::get('/displayfirestring/{id}', 'PositionsController@displayFirestring');
 
 

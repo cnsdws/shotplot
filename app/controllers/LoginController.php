@@ -5,17 +5,13 @@ class LoginController extends BaseController {
 	*/
 	public function signup()
 	{
-		
-		return View::make('signup');
-		
-		
+		return View::make('signup');		
 	}
    	
 
 	public function loginnow()
 	{
 		return View::make('login');
-		
 	}
 
 

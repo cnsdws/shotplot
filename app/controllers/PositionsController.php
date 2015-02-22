@@ -21,6 +21,22 @@ class PositionsController extends BaseController {
 	public function handleCreate()
 	{
 		// Handle the form for creating a shooting match
+
+		//validation
+		$rules = array(
+			    'place' => 'required',
+    			'date' => 'required'   
+			);          
+
+			$validator = Validator::make(Input::all(), $rules);
+
+			if($validator->fails()) {
+
+    			return Redirect::to('/create')
+        			->with('flash_message', 'Create Match failed; please fix the errors listed below:')
+        			->withInput()
+        			->withErrors($validator);
+			}
 		
 		$match = new Match;
 		$match->place = Input::get('place');
@@ -217,6 +233,21 @@ class PositionsController extends BaseController {
 
 	public function handleCreateFirestring()
 	{
+		//validation
+		$rules = array(
+			    'fire_string_number' => 'required',
+			    'distance' => 'required'   
+			);          
+
+		$validator = Validator::make(Input::all(), $rules);
+
+		if($validator->fails()) {
+
+    		return Redirect::to('/createfirestring/{{$match->id}}')
+        		->with('flash_message', 'Create Firestring failed; please fix the errors listed below:')
+        		->withInput()
+        		->withErrors($validator);
+		}
 		$firestring = new Firestring;
 		$match = Match::findOrFail(Input::get('match_id'));
 		$firestring->fire_string_number = Input::get('fire_string_number');
